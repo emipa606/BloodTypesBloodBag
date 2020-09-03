@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <HediffDef Name="BloodType" Abstract="True">
+    <defaultLabelColor>(230,65,23)</defaultLabelColor>
+  </HediffDef>
+  <HediffDef ParentName="BloodType">
+    <defName>BloodType</defName>
+    <label>Blood Type</label>
+    <hediffClass>BloodTypes.BloodTypeHediffWithComps</hediffClass>
+  </HediffDef>
+  <HediffDef ParentName="BloodType">
+    <defName>GotBlood</defName>
+    <hediffClass>BloodTypes.RecievedBloodTypeHediffWithComps</hediffClass>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.3</offset>
+          </li>
+          <li>
+            <capacity>Breathing</capacity>
+            <offset>0.3</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>
+          <min>25000</min>
+          <max>75000</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThoughtDef>
+    <defName>Thoughts_BloodReceiveHappy</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>GotBlood</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>needed donated blood</label>
+        <description>I needed blood and we had extra to give me.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <HediffDef ParentName="BloodType">
+    <defName>GaveBlood</defName>
+    <hediffClass>BloodTypes.RecievedBloodTypeHediffWithComps</hediffClass>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>-0.1777</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>
+          <min>25000</min>
+          <max>75000</max>
+        </disappearsAfterTicks>
+      </li>
+    </comps>
+  </HediffDef>
+  <ThoughtDef>
+    <defName>Thoughts_BloodHappy</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>GaveBlood</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>donated blood</label>
+        <description>I gave blood to help save the community</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThingDef Name="BloodBag" ParentName="DrugBase">
+    <defName>BloodBag</defName>
+    <label>Blood in a bag</label>
+    <thingClass>BloodTypes.BloodBagThingWithComps</thingClass>
+    <graphicData>
+      <texPath>dianneteabloodBag</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MarketValue>200</MarketValue>
+      <Mass>1</Mass>
+      <DeteriorationRate>1.0</DeteriorationRate>
+      <Flammability>0.001</Flammability>
+      <MaxHitPoints>60</MaxHitPoints>
+    </statBases>
+    <techLevel>Neolithic</techLevel>
+    <ingestible>
+      <foodType>Processed, Fluid</foodType>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="BloodTypes.IngestionOutcomeDoer_DonateBlood">
+          <hediffDef>GotBlood</hediffDef>
+          <severity>0.15</severity>
+          <toleranceChemical>Blood</toleranceChemical>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>21</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+      <li Class="CompProperties_Drug">
+        <chemical>Blood</chemical>
+        <addictiveness>0.00</addictiveness>
+        <needLevelOffset>1.00</needLevelOffset>
+        <listOrder>1012</listOrder>
+      </li>
+    </comps>
+    <tickerType>Rare</tickerType>
+  </ThingDef>
+  <ChemicalDef>
+    <defName>Blood</defName>
+    <label>Blood</label>
+    <canBinge>false</canBinge>
+  </ChemicalDef>
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>DonateBlood</defName>
+    <label>Extract Blood Bag</label>
+    <description>Pull out a liter of blood</description>
+    <workerClass>BloodTypes.MakeBloodBag</workerClass>
+    <jobString>extracting blood.</jobString>
+    <workAmount>2500</workAmount>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <addsHediff>GaveBlood</addsHediff>
+    <anesthetize>false</anesthetize>
+    <dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <targetsBodyPart>false</targetsBodyPart>
+    <surgerySuccessChanceFactor>2</surgerySuccessChanceFactor>
+  </RecipeDef>
+  <ThoughtDef>
+    <defName>BloodWorker</defName>
+    <workerClass>BloodTypes.ThoughtWorker_Apply</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>blood</label>
+        <description>blood body</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

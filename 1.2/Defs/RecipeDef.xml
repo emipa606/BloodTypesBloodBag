@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RecipeDef ParentName="SurgeryFlesh">
+    <defName>DonateBlood</defName>
+    <label>Extract Blood Bag</label>
+    <description>Pull out a liter of blood</description>
+    <workerClass>BloodTypes.MakeBloodBag</workerClass>
+    <jobString>extracting blood.</jobString>
+    <workAmount>2500</workAmount>
+    <skillRequirements>
+      <Medicine>5</Medicine>
+    </skillRequirements>
+    <addsHediff>GaveBlood</addsHediff>
+    <anesthetize>false</anesthetize>
+    <dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <targetsBodyPart>false</targetsBodyPart>
+    <surgerySuccessChanceFactor>2</surgerySuccessChanceFactor>
+  </RecipeDef>
+  <!-- <ChemicalDef> -->
+  <!-- <defName>Blood</defName> -->
+  <!-- <label>Blood</label> -->
+  <!-- <canBinge>false</canBinge> -->
+  <!-- </ChemicalDef> -->
+</Defs>
