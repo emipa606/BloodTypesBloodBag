@@ -15,6 +15,7 @@
     <description>Got Blood</description>
     <hediffClass>BloodTypes.RecievedBloodTypeHediffWithComps</hediffClass>
     <isBad>false</isBad>
+    <everCurableByItem>false</everCurableByItem>
     <stages>
       <li>
         <capMods>
