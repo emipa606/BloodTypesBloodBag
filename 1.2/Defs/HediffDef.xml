@@ -11,8 +11,10 @@
   </HediffDef>
   <HediffDef ParentName="BloodType">
     <defName>GotBlood</defName>
+    <label>Got Blood</label>
     <description>Got Blood</description>
     <hediffClass>BloodTypes.RecievedBloodTypeHediffWithComps</hediffClass>
+    <isBad>false</isBad>
     <stages>
       <li>
         <capMods>
@@ -38,6 +40,7 @@
   </HediffDef>
   <HediffDef ParentName="BloodType">
     <defName>GaveBlood</defName>
+    <label>Gave Blood</label>
     <description>Gave Blood</description>
     <hediffClass>BloodTypes.RecievedBloodTypeHediffWithComps</hediffClass>
     <stages>
