@@ -12,14 +12,17 @@ namespace BloodTypes.Harmony
         [HarmonyPostfix]
         public static void Postfix()
         {
-            RecipeDef DonateBlood = DefDatabase<RecipeDef>.GetNamed("DonateBlood");
+            var DonateBlood = DefDatabase<RecipeDef>.GetNamed("DonateBlood");
 
             var humanoidRaces = HumanoidRaces();
 
             foreach (var humanoidRace in humanoidRaces)
             {
                 if (humanoidRace.recipes == null)
+                {
                     humanoidRace.recipes = new List<RecipeDef>();
+                }
+
                 humanoidRace.recipes.Add(DonateBlood);
             }
         }

@@ -1,9 +1,10 @@
 ﻿namespace BloodTypes
 {
-    public enum BloodTypes
+    public enum ExpressedBloodTypes
     {
         A,
         B,
-        O
+        O,
+        AB
     }
 }

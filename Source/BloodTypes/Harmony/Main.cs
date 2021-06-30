@@ -1,12 +1,10 @@
 ﻿using System.Reflection;
-using HarmonyLib;
 using Verse;
 
 namespace BloodTypes.Harmony
 {
-
     [StaticConstructorOnStartup]
-    class Main : Mod
+    internal class Main : Mod
     {
         public Main(ModContentPack content) : base(content)
         {
@@ -14,8 +12,4 @@ namespace BloodTypes.Harmony
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
     }
-
-
-    
-
 }

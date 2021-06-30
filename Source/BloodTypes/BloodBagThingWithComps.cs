@@ -9,16 +9,17 @@ namespace BloodTypes
         public override string Label =>
             base.Label + (BloodType != null ? " [" + BloodType + "]" : " [O-]");
 
-        
+
         public override bool CanStackWith(Thing other)
         {
-            if(!(other is BloodBagThingWithComps))
+            if (!(other is BloodBagThingWithComps))
             {
                 return false;
             }
-            return (other as BloodBagThingWithComps).BloodType == BloodType;
+
+            return ((BloodBagThingWithComps) other).BloodType.Equals(BloodType);
         }
-        
+
         public override void ExposeData()
         {
             Scribe_Deep.Look(ref BloodType, "BloodType");

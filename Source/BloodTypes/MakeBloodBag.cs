@@ -6,13 +6,13 @@ namespace BloodTypes
 {
     public class MakeBloodBag : Recipe_Surgery
     {
-        
-        public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients, Bill bill)
+        public override void ApplyOnPawn(Pawn pawn, BodyPartRecord part, Pawn billDoer, List<Thing> ingredients,
+            Bill bill)
         {
-            var bloodBag = (BloodBagThingWithComps)ThingMaker.MakeThing(ThingDefOf.BloodBag);
+            var bloodBag = (BloodBagThingWithComps) ThingMaker.MakeThing(ThingDefOf.BloodBag);
             bloodBag.BloodType = pawn.GetBloodType().BloodType;
             GenPlace.TryPlaceThing(bloodBag, billDoer.Position, billDoer.Map, ThingPlaceMode.Near);
-            
+
             base.ApplyOnPawn(pawn, part, billDoer, ingredients, bill);
         }
     }

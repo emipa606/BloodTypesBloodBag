@@ -8,7 +8,10 @@ namespace BloodTypes
     {
         protected override ThoughtState CurrentStateInternal(Pawn p)
         {
-            if (p == null) return false;
+            if (p == null)
+            {
+                return false;
+            }
 
             GenerateBloodType(p);
 
@@ -17,15 +20,22 @@ namespace BloodTypes
 
         public static void GenerateBloodType(Pawn pawn)
         {
-            if (PawnHelper.IsHaveHediff(pawn, HediffDefOf.BloodType)) return;
+            if (PawnHelper.IsHaveHediff(pawn, HediffDefOf.BloodType))
+            {
+                return;
+            }
 
-            bool moreThanOne = false;
+            var moreThanOne = false;
             BloodType current = null;
             var parents = pawn.relations.DirectRelations.Where(x => x.def == PawnRelationDefOf.Parent);
             foreach (var relation in parents)
             {
                 var bloodDiff = relation.otherPawn.GetBloodType();
-                if (bloodDiff?.BloodType == null) continue;
+                if (bloodDiff?.BloodType == null)
+                {
+                    continue;
+                }
+
                 if (current == null)
                 {
                     current = bloodDiff.BloodType;
@@ -37,7 +47,10 @@ namespace BloodTypes
                 }
             }
 
-            if (current == null) current = BloodType.Random();
+            if (current == null)
+            {
+                current = BloodType.Random();
+            }
             else if (!moreThanOne)
             {
                 current = current.Child();
