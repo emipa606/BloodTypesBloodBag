@@ -37,7 +37,7 @@ it not needed for anything else, has not costs other than time and it makes your
 Blood Type Compatibility
 		Your ABO blood type is based on the presence or absence of the A and B antigens on your red blood cells. The A blood type has only the A antigen and the B blood type has only the B antigen. The AB blood type has both A and B antigens, and the O blood type has neither A nor B antigen.
 
-		By the time you are six months old, you naturally develop antibodies against the antigens your red blood cells lack. For instance, a person with A blood type will have anti-B antibodies, and a person with B blood type will have anti-A antibodies.  If you have type A blood, you cannot receive B blood because your body's anti-B antibodies will fight the B blood's B antigens. It is crucial we have all blood types available to our patients.
+		By the time you are six months old, you naturally develop antibodies against the antigens your red blood cells lack. For instance, a person with A blood type will have anti-B antibodies, and a person with B blood type will have anti-A antibodies.  If you have type A blood, you cannot receive B blood because your body&apos;s anti-B antibodies will fight the B blood&apos;s B antigens. It is crucial we have all blood types available to our patients.
 
 from https://www.bswhealth.com/patient-tools/blood-center/Pages/blood-type-genetics-and-compatibility.aspx
 		
@@ -54,6 +54,7 @@ donate today : http://www.aabb.org/tm/donation/Pages/Blood-Bank-Locator.aspx
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 
 

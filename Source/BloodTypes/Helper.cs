@@ -16,7 +16,7 @@ namespace BloodTypes
             foreach (var hediff in pawn.health.hediffSet.hediffs.Where(x => x.Bleeding)
                 .OrderByDescending(x => x.BleedRate))
             {
-                hediff.Tended_NewTemp(Math.Min(Rand.Value + Rand.Value + Rand.Value, 1f), 0.7f);
+                hediff.Tended(Math.Min(Rand.Value + Rand.Value + Rand.Value, 1f), 0.7f);
                 maxTends--;
 
                 if (maxTends <= 0)
