@@ -12,12 +12,12 @@ namespace BloodTypes
 
         public override bool CanStackWith(Thing other)
         {
-            if (!(other is BloodBagThingWithComps))
+            if (!(other is BloodBagThingWithComps withComps))
             {
                 return false;
             }
 
-            return ((BloodBagThingWithComps) other).BloodType.Equals(BloodType);
+            return withComps.BloodType.Equals(BloodType);
         }
 
         public override void ExposeData()

@@ -25,14 +25,31 @@ namespace BloodTypes
                 }
             }
 
+
+            if (pawn == null)
+            {
+                return;
+            }
+
+            var bloodLoss = pawn.health?.hediffSet.GetFirstHediffOfDef(RimWorld.HediffDefOf.BloodLoss);
+            if (bloodLoss != null)
+            {
+                if (bloodLoss.Severity > 0.25f)
+                {
+                    bloodLoss.Severity -= 0.25f;
+                    return;
+                }
+
+                pawn.RemoveHediff(RimWorld.HediffDefOf.BloodLoss);
+            }
+
+            pawn.RemoveHediff(HediffDefOf.GaveBlood);
+
             var hediff = HediffMaker.MakeHediff(hediffDef, pawn);
-            var effect = (double) severity <= 0.0 ? hediffDef.initialSeverity : severity;
+            var effect = severity <= 0.0 ? hediffDef.initialSeverity : severity;
             if (divideByBodySize)
             {
-                if (pawn != null)
-                {
-                    effect /= pawn.BodySize;
-                }
+                effect /= pawn.BodySize;
             }
 
             AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize(pawn, toleranceChemical, ref effect);

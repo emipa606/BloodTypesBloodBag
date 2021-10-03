@@ -18,6 +18,7 @@
     <everCurableByItem>false</everCurableByItem>
     <stages>
       <li>
+        <label>invigorated</label>
         <capMods>
           <li>
             <capacity>BloodPumping</capacity>
@@ -43,9 +44,13 @@
     <defName>GaveBlood</defName>
     <label>Gave Blood</label>
     <description>Gave Blood</description>
+    <isBad>false</isBad>
+    <initialSeverity>1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
     <hediffClass>BloodTypes.RecievedBloodTypeHediffWithComps</hediffClass>
     <stages>
       <li>
+        <label>weak</label>
         <capMods>
           <li>
             <capacity>BloodPumping</capacity>

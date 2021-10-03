@@ -30,7 +30,7 @@ namespace BloodTypes
 
         public ExpressedBloodTypes ExpressedBloodType()
         {
-            var expressed = (ExpressedBloodTypes) Primary;
+            var expressed = (ExpressedBloodTypes)Primary;
             if (Primary == Secondary)
             {
                 return expressed;
@@ -38,12 +38,12 @@ namespace BloodTypes
 
             if (Primary == BloodTypes.O)
             {
-                return (ExpressedBloodTypes) Secondary;
+                return (ExpressedBloodTypes)Secondary;
             }
 
             if (Secondary == BloodTypes.O)
             {
-                return (ExpressedBloodTypes) Primary;
+                return (ExpressedBloodTypes)Primary;
             }
 
             return ExpressedBloodTypes.AB;
@@ -88,10 +88,10 @@ namespace BloodTypes
         {
             return new BloodType
             {
-                Primary = (BloodTypes) (Rand.Value * 3),
-                Secondary = (BloodTypes) (Rand.Value * 3),
-                RhPrimary = (Rh) (Rand.Value * 2),
-                RhSecondary = (Rh) (Rand.Value * 2)
+                Primary = (BloodTypes)(Rand.Value * 3),
+                Secondary = (BloodTypes)(Rand.Value * 3),
+                RhPrimary = (Rh)(Rand.Value * 2),
+                RhSecondary = (Rh)(Rand.Value * 2)
             };
         }
 
@@ -104,10 +104,10 @@ namespace BloodTypes
 
             return new BloodType
             {
-                Primary = new[] {other.Primary, Primary}.RandomElement(),
-                Secondary = new[] {other.Secondary, Primary}.RandomElement(),
-                RhPrimary = new[] {other.RhPrimary, RhPrimary}.RandomElement(),
-                RhSecondary = new[] {other.RhSecondary, RhSecondary}.RandomElement()
+                Primary = new[] { other.Primary, Primary }.RandomElement(),
+                Secondary = new[] { other.Secondary, Primary }.RandomElement(),
+                RhPrimary = new[] { other.RhPrimary, RhPrimary }.RandomElement(),
+                RhSecondary = new[] { other.RhSecondary, RhSecondary }.RandomElement()
             };
         }
 
@@ -133,7 +133,7 @@ namespace BloodTypes
                 return false;
             }
 
-            return Equals((BloodType) obj);
+            return Equals((BloodType)obj);
         }
 
         public override int GetHashCode()

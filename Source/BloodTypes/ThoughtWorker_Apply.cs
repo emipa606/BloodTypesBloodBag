@@ -63,7 +63,7 @@ namespace BloodTypes
 
         private static void AddBloodType(Pawn pawn, BloodType current)
         {
-            var myDef = (BloodTypeHediffWithComps) pawn.health.AddHediff(HediffDefOf.BloodType);
+            var myDef = (BloodTypeHediffWithComps)pawn.health.AddHediff(HediffDefOf.BloodType);
             myDef.BloodType = current;
         }
     }

@@ -9,12 +9,6 @@ namespace BloodTypes
 
         public override string LabelInBrackets => BloodType?.ToString();
 
-        public override void PostAdd(DamageInfo? dinfo)
-        {
-            pawn.RemoveHediff(RimWorld.HediffDefOf.BloodLoss);
-            base.PostAdd(dinfo);
-        }
-
         public override void PostTick()
         {
             _index %= 2579;

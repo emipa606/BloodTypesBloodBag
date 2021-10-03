@@ -8,7 +8,7 @@ namespace BloodTypes
     {
         public static BloodTypeHediffWithComps GetBloodType(this Pawn pawn)
         {
-            return (BloodTypeHediffWithComps) pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodType);
+            return (BloodTypeHediffWithComps)pawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodType);
         }
 
         public static void Clot(this Pawn pawn, int maxTends = 5)

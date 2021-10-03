@@ -1,6 +1,6 @@
 # BloodTypesBloodBag
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of AliceCecils mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1540233466
@@ -11,19 +11,10 @@ https://github.com/inexcode/RimworldBloodBag
 - Fixed stack-graphics
 - Got Blood-hediff should now not count as bad and not curable by item
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-	[tr]
-		[td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-		[td]https://github.com/emipa606/BloodTypesBloodBag]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-	[/tr]
-[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 
 Adds blood types, transfusion and other bonuses and mishaps related there in
@@ -37,14 +28,14 @@ it not needed for anything else, has not costs other than time and it makes your
 Blood Type Compatibility
 		Your ABO blood type is based on the presence or absence of the A and B antigens on your red blood cells. The A blood type has only the A antigen and the B blood type has only the B antigen. The AB blood type has both A and B antigens, and the O blood type has neither A nor B antigen.
 
-		By the time you are six months old, you naturally develop antibodies against the antigens your red blood cells lack. For instance, a person with A blood type will have anti-B antibodies, and a person with B blood type will have anti-A antibodies.  If you have type A blood, you cannot receive B blood because your body&apos;s anti-B antibodies will fight the B blood&apos;s B antigens. It is crucial we have all blood types available to our patients.
+		By the time you are six months old, you naturally develop antibodies against the antigens your red blood cells lack. For instance, a person with A blood type will have anti-B antibodies, and a person with B blood type will have anti-A antibodies.  If you have type A blood, you cannot receive B blood because your body's anti-B antibodies will fight the B blood's B antigens. It is crucial we have all blood types available to our patients.
 
 from https://www.bswhealth.com/patient-tools/blood-center/Pages/blood-type-genetics-and-compatibility.aspx
 		
 donate today : http://www.aabb.org/tm/donation/Pages/Blood-Bank-Locator.aspx
 
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
@@ -54,7 +45,6 @@ donate today : http://www.aabb.org/tm/donation/Pages/Blood-Bank-Locator.aspx
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
-
 
 
 
