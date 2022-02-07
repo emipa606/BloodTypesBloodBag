@@ -10,6 +10,7 @@ https://github.com/inexcode/RimworldBloodBag
 - Added a normal stacksize for the blood bags
 - Fixed stack-graphics
 - Got Blood-hediff should now not count as bad and not curable by item
+- Multiple giving of blood will now result in blood-loss
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 
