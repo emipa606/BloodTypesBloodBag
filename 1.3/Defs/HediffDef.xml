@@ -8,6 +8,7 @@
     <label>Blood Type</label>
     <description>Blood Type</description>
     <hediffClass>BloodTypes.BloodTypeHediffWithComps</hediffClass>
+    <isBad>false</isBad>
   </HediffDef>
   <HediffDef ParentName="BloodType">
     <defName>GotBlood</defName>
