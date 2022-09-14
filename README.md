@@ -2,14 +2,14 @@
 
 ![Image](https://i.imgur.com/buuPQel.png)
 
-Update of AliceCecils mod
+Update of alicetries mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1540233466
 This mod is an update of the fix to 1.0 from inexcode
 https://github.com/inexcode/RimworldBloodBag
 
 - Added a normal stacksize for the blood bags
 - Fixed stack-graphics
-- Got Blood-hediff should now not count as bad and not curable by item
+- Got Blood and Bloodtype-hediff should now not count as bad and not curable by item
 - Multiple giving of blood will now result in blood-loss
 
 ![Image](https://i.imgur.com/pufA0kM.png)

@@ -1,5 +1,8 @@
 # Changelog for BloodTypesBloodBag
 
+1.3.3 - Updated author on demand
+
+
 1.3.2 - Blood type should no longer count as a bad hediff, missed that when fixing the gave/recieved blood hediffs.
 
 
