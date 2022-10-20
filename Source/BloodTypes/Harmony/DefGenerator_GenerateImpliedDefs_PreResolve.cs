@@ -4,45 +4,44 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 
-namespace BloodTypes.Harmony
+namespace BloodTypes.Harmony;
+
+[HarmonyPatch(typeof(DefGenerator), "GenerateImpliedDefs_PreResolve")]
+public static class DefGenerator_GenerateImpliedDefs_PreResolve
 {
-    [HarmonyPatch(typeof(DefGenerator), "GenerateImpliedDefs_PreResolve")]
-    public static class DefGenerator_GenerateImpliedDefs_PreResolve
+    [HarmonyPostfix]
+    public static void Postfix()
     {
-        [HarmonyPostfix]
-        public static void Postfix()
+        var DonateBlood = DefDatabase<RecipeDef>.GetNamed("DonateBlood");
+
+        var humanoidRaces = HumanoidRaces();
+
+        foreach (var humanoidRace in humanoidRaces)
         {
-            var DonateBlood = DefDatabase<RecipeDef>.GetNamed("DonateBlood");
-
-            var humanoidRaces = HumanoidRaces();
-
-            foreach (var humanoidRace in humanoidRaces)
+            if (humanoidRace.recipes == null)
             {
-                if (humanoidRace.recipes == null)
-                {
-                    humanoidRace.recipes = new List<RecipeDef>();
-                }
-
-                humanoidRace.recipes.Add(DonateBlood);
+                humanoidRace.recipes = new List<RecipeDef>();
             }
-        }
 
-        private static IEnumerable<BodyDef> FleshBodiedRaces(IEnumerable<ThingDef> humanoidRaces)
-        {
-            var fleshBodies = humanoidRaces
-                .Select(t => t.race.body)
-                .Distinct();
-            return fleshBodies;
+            humanoidRace.recipes.Add(DonateBlood);
         }
+    }
 
-        public static IEnumerable<ThingDef> HumanoidRaces()
-        {
-            var fleshRaces = DefDatabase<ThingDef>
-                .AllDefsListForReading
-                .Where(t => t.race?.IsFlesh ?? false); // return __instance.FleshType != FleshTypeDefOf.Mechanoid;
+    private static IEnumerable<BodyDef> FleshBodiedRaces(IEnumerable<ThingDef> humanoidRaces)
+    {
+        var fleshBodies = humanoidRaces
+            .Select(t => t.race.body)
+            .Distinct();
+        return fleshBodies;
+    }
 
-            var humanoidRaces = fleshRaces.Where(td => td.race.Humanlike);
-            return humanoidRaces;
-        }
+    public static IEnumerable<ThingDef> HumanoidRaces()
+    {
+        var fleshRaces = DefDatabase<ThingDef>
+            .AllDefsListForReading
+            .Where(t => t.race?.IsFlesh ?? false); // return __instance.FleshType != FleshTypeDefOf.Mechanoid;
+
+        var humanoidRaces = fleshRaces.Where(td => td.race.Humanlike);
+        return humanoidRaces;
     }
 }

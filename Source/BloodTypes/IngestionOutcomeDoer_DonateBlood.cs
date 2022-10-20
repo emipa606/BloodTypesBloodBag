@@ -1,60 +1,59 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace BloodTypes
-{
-    public class IngestionOutcomeDoer_DonateBlood : IngestionOutcomeDoer
-    {
-        private readonly bool divideByBodySize;
-        public HediffDef hediffDef;
-        public float severity = -1f;
-        public ChemicalDef toleranceChemical;
+namespace BloodTypes;
 
-        protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested)
+public class IngestionOutcomeDoer_DonateBlood : IngestionOutcomeDoer
+{
+    private readonly bool divideByBodySize;
+    public HediffDef hediffDef;
+    public float severity = -1f;
+    public ChemicalDef toleranceChemical;
+
+    protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested)
+    {
+        if (ingested is BloodBagThingWithComps bag)
         {
-            if (ingested is BloodBagThingWithComps bag)
+            if (!pawn.GetBloodType()?.BloodType.CanGetBlood(bag.BloodType) ?? false)
             {
-                if (!pawn.GetBloodType()?.BloodType.CanGetBlood(bag.BloodType) ?? false)
+                //TODO blood incompatibility, MVP FoodPoison
+                var d = pawn?.health?.AddHediff(RimWorld.HediffDefOf.FoodPoisoning);
+                if (d != null)
                 {
-                    //TODO blood incompatibility, MVP FoodPoison
-                    var d = pawn?.health?.AddHediff(RimWorld.HediffDefOf.FoodPoisoning);
-                    if (d != null)
-                    {
-                        d.Severity = Rand.Value / 3f;
-                    }
+                    d.Severity = Rand.Value / 3f;
                 }
             }
+        }
 
 
-            if (pawn == null)
+        if (pawn == null)
+        {
+            return;
+        }
+
+        var bloodLoss = pawn.health?.hediffSet.GetFirstHediffOfDef(RimWorld.HediffDefOf.BloodLoss);
+        if (bloodLoss != null)
+        {
+            if (bloodLoss.Severity > 0.25f)
             {
+                bloodLoss.Severity -= 0.25f;
                 return;
             }
 
-            var bloodLoss = pawn.health?.hediffSet.GetFirstHediffOfDef(RimWorld.HediffDefOf.BloodLoss);
-            if (bloodLoss != null)
-            {
-                if (bloodLoss.Severity > 0.25f)
-                {
-                    bloodLoss.Severity -= 0.25f;
-                    return;
-                }
-
-                pawn.RemoveHediff(RimWorld.HediffDefOf.BloodLoss);
-            }
-
-            pawn.RemoveHediff(HediffDefOf.GaveBlood);
-
-            var hediff = HediffMaker.MakeHediff(hediffDef, pawn);
-            var effect = severity <= 0.0 ? hediffDef.initialSeverity : severity;
-            if (divideByBodySize)
-            {
-                effect /= pawn.BodySize;
-            }
-
-            AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize(pawn, toleranceChemical, ref effect);
-            hediff.Severity = effect;
-            pawn?.health?.AddHediff(hediff);
+            pawn.RemoveHediff(RimWorld.HediffDefOf.BloodLoss);
         }
+
+        pawn.RemoveHediff(HediffDefOf.GaveBlood);
+
+        var hediff = HediffMaker.MakeHediff(hediffDef, pawn);
+        var effect = severity <= 0.0 ? hediffDef.initialSeverity : severity;
+        if (divideByBodySize)
+        {
+            effect /= pawn.BodySize;
+        }
+
+        AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize(pawn, toleranceChemical, ref effect);
+        hediff.Severity = effect;
+        pawn?.health?.AddHediff(hediff);
     }
 }

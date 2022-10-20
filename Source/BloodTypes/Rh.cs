@@ -1,8 +1,7 @@
-﻿namespace BloodTypes
+﻿namespace BloodTypes;
+
+public enum Rh
 {
-    public enum Rh
-    {
-        Neg,
-        Pos
-    }
+    Neg,
+    Pos
 }

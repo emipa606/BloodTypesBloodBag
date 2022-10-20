@@ -1,11 +1,10 @@
 using RimWorld;
 using Verse;
 
-namespace BloodTypes
+namespace BloodTypes;
+
+[DefOf]
+public class ThingDefOf
 {
-    [DefOf]
-    public class ThingDefOf
-    {
-        public static ThingDef BloodBag;
-    }
+    public static ThingDef BloodBag;
 }

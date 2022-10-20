@@ -1,9 +1,8 @@
-﻿namespace BloodTypes
+﻿namespace BloodTypes;
+
+public enum BloodTypes
 {
-    public enum BloodTypes
-    {
-        A,
-        B,
-        O
-    }
+    A,
+    B,
+    O
 }
