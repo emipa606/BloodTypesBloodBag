@@ -1,5 +1,8 @@
 # Changelog for BloodTypesBloodBag
 
+1.4.2 - Should now ignore Androids
+
+
 1.4.1 - Mod updated for 1.4 and passed autotests
 
 

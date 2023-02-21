@@ -50,3 +50,4 @@ donate today : http://www.aabb.org/tm/donation/Pages/Blood-Bank-Locator.aspx
 
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2218473451]Last updated 2023-02-21

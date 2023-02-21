@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using BloodTypes.Harmony;
 using RimWorld;
 using Verse;
 
@@ -20,6 +21,11 @@ public class ThoughtWorker_Apply : ThoughtWorker
 
     public static void GenerateBloodType(Pawn pawn)
     {
+        if (!DefGenerator_GenerateImpliedDefs_PreResolve.ValidRace(pawn.def))
+        {
+            return;
+        }
+
         if (PawnHelper.IsHaveHediff(pawn, HediffDefOf.BloodType))
         {
             return;

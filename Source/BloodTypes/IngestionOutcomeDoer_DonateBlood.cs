@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using BloodTypes.Harmony;
+using RimWorld;
 using Verse;
 
 namespace BloodTypes;
@@ -26,7 +27,7 @@ public class IngestionOutcomeDoer_DonateBlood : IngestionOutcomeDoer
         }
 
 
-        if (pawn == null)
+        if (pawn == null || !DefGenerator_GenerateImpliedDefs_PreResolve.ValidRace(pawn.def))
         {
             return;
         }
@@ -52,7 +53,8 @@ public class IngestionOutcomeDoer_DonateBlood : IngestionOutcomeDoer
             effect /= pawn.BodySize;
         }
 
-        AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize(pawn, toleranceChemical, ref effect);
+        AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize_NewTemp(pawn, toleranceChemical, ref effect,
+            false);
         hediff.Severity = effect;
         pawn?.health?.AddHediff(hediff);
     }
