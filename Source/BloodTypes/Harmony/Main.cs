@@ -8,7 +8,6 @@ internal class Main : Mod
 {
     public Main(ModContentPack content) : base(content)
     {
-        var harmony = new HarmonyLib.Harmony("BloodTypes.Harmony");
-        harmony.PatchAll(Assembly.GetExecutingAssembly());
+        new HarmonyLib.Harmony("BloodTypes.Harmony").PatchAll(Assembly.GetExecutingAssembly());
     }
 }

@@ -128,12 +128,7 @@ public class BloodType : IExposable
             return true;
         }
 
-        if (obj.GetType() != GetType())
-        {
-            return false;
-        }
-
-        return Equals((BloodType)obj);
+        return obj.GetType() == GetType() && Equals((BloodType)obj);
     }
 
     public override int GetHashCode()

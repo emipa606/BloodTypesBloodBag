@@ -7,11 +7,11 @@ namespace BloodTypes;
 public class IngestionOutcomeDoer_DonateBlood : IngestionOutcomeDoer
 {
     private readonly bool divideByBodySize;
+    public readonly float severity = -1f;
     public HediffDef hediffDef;
-    public float severity = -1f;
     public ChemicalDef toleranceChemical;
 
-    protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested)
+    protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
     {
         if (ingested is BloodBagThingWithComps bag)
         {
@@ -56,6 +56,6 @@ public class IngestionOutcomeDoer_DonateBlood : IngestionOutcomeDoer
         AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize_NewTemp(pawn, toleranceChemical, ref effect,
             false);
         hediff.Severity = effect;
-        pawn?.health?.AddHediff(hediff);
+        pawn.health?.AddHediff(hediff);
     }
 }

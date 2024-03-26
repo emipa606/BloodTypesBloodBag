@@ -20,7 +20,7 @@ public static class DefGenerator_GenerateImpliedDefs_PreResolve
         {
             if (humanoidRace.recipes == null)
             {
-                humanoidRace.recipes = new List<RecipeDef>();
+                humanoidRace.recipes = [];
             }
 
             humanoidRace.recipes.Add(DonateBlood);
