@@ -4,10 +4,24 @@ namespace BloodTypes;
 
 public class BloodBagThingWithComps : ThingWithComps
 {
-    public BloodType BloodType;
+    private BloodType bloodType;
 
     public override string Label =>
-        base.Label + (BloodType != null ? $" [{BloodType}]" : " [O-]");
+        $"{base.Label} [{BloodType}]";
+
+    public BloodType BloodType
+    {
+        get
+        {
+            if (bloodType == null)
+            {
+                bloodType = BloodType.Random();
+            }
+
+            return bloodType;
+        }
+        set => bloodType = value;
+    }
 
 
     public override bool CanStackWith(Thing other)
@@ -17,7 +31,7 @@ public class BloodBagThingWithComps : ThingWithComps
 
     public override void ExposeData()
     {
-        Scribe_Deep.Look(ref BloodType, "BloodType");
+        Scribe_Deep.Look(ref bloodType, "BloodType");
         base.ExposeData();
     }
 }

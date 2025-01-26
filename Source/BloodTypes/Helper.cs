@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using LudeonTK;
 using Verse;
 
 namespace BloodTypes;
@@ -38,5 +40,47 @@ public static class Helper
         {
             pawn.health.RemoveHediff(toxic);
         }
+    }
+
+    [DebugAction("Spawning", "Spawn bloodbag", allowedGameStates = AllowedGameStates.PlayingOnMap)]
+    public static List<DebugActionNode> SpawnBloodBag()
+    {
+        var list = new List<DebugActionNode>();
+        var bloodTypeLabels = new List<string>();
+        var possibleBloodTypes = Enum.GetValues(typeof(BloodTypes));
+        var possibleRhTypes = Enum.GetValues(typeof(Rh));
+
+        foreach (var bloodTypePrimary in possibleBloodTypes)
+        {
+            foreach (var bloodTypeSecondary in possibleBloodTypes)
+            {
+                foreach (var possibleRhTypePrimary in possibleRhTypes)
+                {
+                    foreach (var possibleRhTypeSecondary in possibleRhTypes)
+                    {
+                        var bloodType = new BloodType
+                        {
+                            Primary = (BloodTypes)bloodTypePrimary, Secondary = (BloodTypes)bloodTypeSecondary,
+                            RhPrimary = (Rh)possibleRhTypePrimary, RhSecondary = (Rh)possibleRhTypeSecondary
+                        };
+                        if (bloodTypeLabels.Contains(bloodType.ToString()))
+                        {
+                            continue;
+                        }
+
+                        bloodTypeLabels.Add(bloodType.ToString());
+
+                        list.Add(new DebugActionNode(bloodType.ToString(), DebugActionType.ToolMap, delegate
+                        {
+                            var bloodBag = (BloodBagThingWithComps)ThingMaker.MakeThing(ThingDefOf.BloodBag);
+                            bloodBag.BloodType = bloodType;
+                            GenPlace.TryPlaceThing(bloodBag, UI.MouseCell(), Find.CurrentMap, ThingPlaceMode.Near);
+                        }));
+                    }
+                }
+            }
+        }
+
+        return list;
     }
 }

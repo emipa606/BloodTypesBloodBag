@@ -1,5 +1,9 @@
 # Changelog for BloodTypesBloodBag
 
+1.5.1 - Bloodtypes can no longer be null, uses random if generating as reward or inventory
+Added debug option to spawn specific blood type bags
+
+
 1.5.0 - Mod updated for 1.5 and passed autotests
 
 
