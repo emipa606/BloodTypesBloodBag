@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Blood in a bag -->
+  <BloodBag.label>Blood in a bag</BloodBag.label>
+  <!-- EN: By the time you are six months old, you naturally develop antibodies against the antigens your red blood cells lack. \nFor instance, a person with A blood type will have anti-B antibodies, and a person with B blood type will have anti-A antibodies. \nIf you have type A blood, you cannot receive B blood because your body's anti-B antibodies will fight the B blood's B antigens. \n\nThe Rh factor is simply a protein that is found on the covering of the red blood cells. \nIf your red blood cells have this protein, you are Rh positive. \nIf your blood cells don't have this protein, you are Rh negative. -->
+  <BloodBag.description>By the time you are six months old, you naturally develop antibodies against the antigens your red blood cells lack. 
+For instance, a person with A blood type will have anti-B antibodies, and a person with B blood type will have anti-A antibodies. 
+If you have type A blood, you cannot receive B blood because your body's anti-B antibodies will fight the B blood's B antigens. 
+
+The Rh factor is simply a protein that is found on the covering of the red blood cells. 
+If your red blood cells have this protein, you are Rh positive. 
+If your blood cells don't have this protein, you are Rh negative.</BloodBag.description>
+</LanguageData>

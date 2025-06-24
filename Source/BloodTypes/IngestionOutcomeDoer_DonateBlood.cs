@@ -7,7 +7,7 @@ namespace BloodTypes;
 public class IngestionOutcomeDoer_DonateBlood : IngestionOutcomeDoer
 {
     private readonly bool divideByBodySize;
-    public readonly float severity = -1f;
+    private readonly float severity = -1f;
     public HediffDef hediffDef;
     public ChemicalDef toleranceChemical;
 
@@ -53,8 +53,7 @@ public class IngestionOutcomeDoer_DonateBlood : IngestionOutcomeDoer
             effect /= pawn.BodySize;
         }
 
-        AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize_NewTemp(pawn, toleranceChemical, ref effect,
-            false);
+        AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize(pawn, toleranceChemical, ref effect, false);
         hediff.Severity = effect;
         pawn.health?.AddHediff(hediff);
     }

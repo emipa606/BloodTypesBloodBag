@@ -18,7 +18,7 @@ public class BloodType : IExposable
     }
 
 
-    public Rh RhExpressed()
+    private Rh rhExpressed()
     {
         if (RhPrimary == Rh.Pos || RhSecondary == Rh.Pos)
         {
@@ -28,7 +28,7 @@ public class BloodType : IExposable
         return Rh.Neg;
     }
 
-    public ExpressedBloodTypes ExpressedBloodType()
+    private ExpressedBloodTypes expressedBloodType()
     {
         var expressed = (ExpressedBloodTypes)Primary;
         if (Primary == Secondary)
@@ -56,11 +56,11 @@ public class BloodType : IExposable
             return true;
         }
 
-        var expressed = ExpressedBloodType();
-        var otherExpressed = other.ExpressedBloodType();
-        if (RhExpressed() == Rh.Neg)
+        var expressed = expressedBloodType();
+        var otherExpressed = other.expressedBloodType();
+        if (rhExpressed() == Rh.Neg)
         {
-            if (other.RhExpressed() == Rh.Pos)
+            if (other.rhExpressed() == Rh.Pos)
             {
                 return false;
             }
@@ -81,7 +81,7 @@ public class BloodType : IExposable
 
     public override string ToString()
     {
-        return ExpressedBloodType() + (RhExpressed() == Rh.Pos ? "+" : "-");
+        return expressedBloodType() + (rhExpressed() == Rh.Pos ? "+" : "-");
     }
 
     public static BloodType Random()
@@ -97,10 +97,7 @@ public class BloodType : IExposable
 
     public BloodType Child(BloodType other = null)
     {
-        if (other == null)
-        {
-            other = Random();
-        }
+        other ??= Random();
 
         return new BloodType
         {
@@ -113,7 +110,7 @@ public class BloodType : IExposable
 
     public bool Equals(BloodType other)
     {
-        return ExpressedBloodType().Equals(other.ExpressedBloodType()) && RhExpressed().Equals(other.RhExpressed());
+        return expressedBloodType().Equals(other.expressedBloodType()) && rhExpressed().Equals(other.rhExpressed());
     }
 
     public override bool Equals(object obj)

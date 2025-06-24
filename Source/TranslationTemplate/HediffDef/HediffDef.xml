@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Blood Type -->
+  <BloodType.label>Blood Type</BloodType.label>
+  <!-- EN: Blood Type -->
+  <BloodType.description>Blood Type</BloodType.description>
+  <!-- EN: Gave Blood -->
+  <GaveBlood.label>Gave Blood</GaveBlood.label>
+  <!-- EN: Gave Blood -->
+  <GaveBlood.description>Gave Blood</GaveBlood.description>
+  <!-- EN: weak -->
+  <GaveBlood.stages.weak.label>weak</GaveBlood.stages.weak.label>
+  <!-- EN: Got Blood -->
+  <GotBlood.label>Got Blood</GotBlood.label>
+  <!-- EN: Got Blood -->
+  <GotBlood.description>Got Blood</GotBlood.description>
+  <!-- EN: invigorated -->
+  <GotBlood.stages.invigorated.label>invigorated</GotBlood.stages.invigorated.label>
+</LanguageData>

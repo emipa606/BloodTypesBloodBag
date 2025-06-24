@@ -13,10 +13,7 @@ public class BloodBagThingWithComps : ThingWithComps
     {
         get
         {
-            if (bloodType == null)
-            {
-                bloodType = BloodType.Random();
-            }
+            bloodType ??= BloodType.Random();
 
             return bloodType;
         }

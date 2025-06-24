@@ -6,28 +6,24 @@ using Verse;
 
 namespace BloodTypes.Harmony;
 
-[HarmonyPatch(typeof(DefGenerator), "GenerateImpliedDefs_PreResolve")]
+[HarmonyPatch(typeof(DefGenerator), nameof(DefGenerator.GenerateImpliedDefs_PreResolve))]
 public static class DefGenerator_GenerateImpliedDefs_PreResolve
 {
-    [HarmonyPostfix]
     public static void Postfix()
     {
-        var DonateBlood = DefDatabase<RecipeDef>.GetNamed("DonateBlood");
+        var donateBlood = DefDatabase<RecipeDef>.GetNamed("DonateBlood");
 
-        var humanoidRaces = HumanoidRaces();
+        var humanoidRaces = DefGenerator_GenerateImpliedDefs_PreResolve.humanoidRaces();
 
         foreach (var humanoidRace in humanoidRaces)
         {
-            if (humanoidRace.recipes == null)
-            {
-                humanoidRace.recipes = [];
-            }
+            humanoidRace.recipes ??= [];
 
-            humanoidRace.recipes.Add(DonateBlood);
+            humanoidRace.recipes.Add(donateBlood);
         }
     }
 
-    public static IEnumerable<ThingDef> HumanoidRaces()
+    private static IEnumerable<ThingDef> humanoidRaces()
     {
         return DefDatabase<ThingDef>.AllDefsListForReading.Where(ValidRace);
     }

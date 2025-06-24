@@ -14,12 +14,12 @@ public class ThoughtWorker_Apply : ThoughtWorker
             return false;
         }
 
-        GenerateBloodType(p);
+        generateBloodType(p);
 
         return false;
     }
 
-    public static void GenerateBloodType(Pawn pawn)
+    private static void generateBloodType(Pawn pawn)
     {
         if (!DefGenerator_GenerateImpliedDefs_PreResolve.ValidRace(pawn.def))
         {
@@ -63,11 +63,11 @@ public class ThoughtWorker_Apply : ThoughtWorker
         }
 
 
-        AddBloodType(pawn, current);
+        addBloodType(pawn, current);
     }
 
 
-    private static void AddBloodType(Pawn pawn, BloodType current)
+    private static void addBloodType(Pawn pawn, BloodType current)
     {
         var myDef = (BloodTypeHediffWithComps)pawn.health.AddHediff(HediffDefOf.BloodType);
         myDef.BloodType = current;

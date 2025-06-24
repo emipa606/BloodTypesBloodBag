@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThoughtDef>
+    <defName>Thoughts_BloodReceiveHappy</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>GotBlood</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>needed donated blood</label>
+        <description>I needed blood and we had extra to give me.</description>
+        <baseMoodEffect>1</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>Thoughts_BloodHappy</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>GaveBlood</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>donated blood</label>
+        <description>I gave blood to help save the community</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  <ThoughtDef>
+    <defName>BloodWorker</defName>
+    <workerClass>BloodTypes.ThoughtWorker_Apply</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>blood</label>
+        <description>blood body</description>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

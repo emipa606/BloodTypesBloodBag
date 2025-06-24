@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef Name="BloodBag" ParentName="DrugBase">
+    <defName>BloodBag</defName>
+    <label>Blood in a bag</label>
+    <description>By the time you are six months old, you naturally develop antibodies against the antigens your red blood cells lack. 
+For instance, a person with A blood type will have anti-B antibodies, and a person with B blood type will have anti-A antibodies. 
+If you have type A blood, you cannot receive B blood because your body's anti-B antibodies will fight the B blood's B antigens. 
+
+The Rh factor is simply a protein that is found on the covering of the red blood cells. 
+If your red blood cells have this protein, you are Rh positive. 
+If your blood cells don't have this protein, you are Rh negative.</description>
+    <thingClass>BloodTypes.BloodBagThingWithComps</thingClass>
+    <graphicData>
+      <texPath>bloodBag</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <stackLimit>10</stackLimit>
+    <statBases>
+      <MarketValue>200</MarketValue>
+      <Mass>1</Mass>
+      <DeteriorationRate>1.0</DeteriorationRate>
+      <Flammability>0.001</Flammability>
+      <MaxHitPoints>60</MaxHitPoints>
+    </statBases>
+    <techLevel>Neolithic</techLevel>
+    <ingestible>
+      <foodType>Processed, Fluid</foodType>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="BloodTypes.IngestionOutcomeDoer_DonateBlood">
+          <hediffDef>GotBlood</hediffDef>
+          <severity>0.15</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>21</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+      <li Class="CompProperties_Drug">
+        <needLevelOffset>1.00</needLevelOffset>
+        <listOrder>1012</listOrder>
+      </li>
+    </comps>
+    <tickerType>Rare</tickerType>
+  </ThingDef>
+</Defs>

@@ -3,7 +3,6 @@ using Verse;
 
 namespace BloodTypes.Harmony;
 
-[StaticConstructorOnStartup]
 internal class Main : Mod
 {
     public Main(ModContentPack content) : base(content)

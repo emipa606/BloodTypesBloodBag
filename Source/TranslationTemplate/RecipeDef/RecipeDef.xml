@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Extract Blood Bag -->
+  <DonateBlood.label>Extract Blood Bag</DonateBlood.label>
+  <!-- EN: Pull out a liter of blood -->
+  <DonateBlood.description>Pull out a liter of blood</DonateBlood.description>
+  <!-- EN: extracting blood. -->
+  <DonateBlood.jobString>extracting blood.</DonateBlood.jobString>
+</LanguageData>

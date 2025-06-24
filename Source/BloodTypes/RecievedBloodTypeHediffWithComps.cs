@@ -5,9 +5,9 @@ namespace BloodTypes;
 public class RecievedBloodTypeHediffWithComps : HediffWithComps
 {
     private short _index;
-    public BloodType BloodType;
+    private BloodType bloodType;
 
-    public override string LabelInBrackets => BloodType?.ToString();
+    public override string LabelInBrackets => bloodType?.ToString();
 
     public override void PostTick()
     {
@@ -23,7 +23,7 @@ public class RecievedBloodTypeHediffWithComps : HediffWithComps
 
     public override void ExposeData()
     {
-        Scribe_Deep.Look(ref BloodType, "BloodType");
+        Scribe_Deep.Look(ref bloodType, "BloodType");
         base.ExposeData();
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: blood -->
+  <BloodWorker.stages.blood.label>blood</BloodWorker.stages.blood.label>
+  <!-- EN: blood body -->
+  <BloodWorker.stages.blood.description>blood body</BloodWorker.stages.blood.description>
+  <!-- EN: donated blood -->
+  <Thoughts_BloodHappy.stages.donated_blood.label>donated blood</Thoughts_BloodHappy.stages.donated_blood.label>
+  <!-- EN: I gave blood to help save the community -->
+  <Thoughts_BloodHappy.stages.donated_blood.description>I gave blood to help save the community</Thoughts_BloodHappy.stages.donated_blood.description>
+  <!-- EN: needed donated blood -->
+  <Thoughts_BloodReceiveHappy.stages.needed_donated_blood.label>needed donated blood</Thoughts_BloodReceiveHappy.stages.needed_donated_blood.label>
+  <!-- EN: I needed blood and we had extra to give me. -->
+  <Thoughts_BloodReceiveHappy.stages.needed_donated_blood.description>I needed blood and we had extra to give me.</Thoughts_BloodReceiveHappy.stages.needed_donated_blood.description>
+</LanguageData>
